@@ -19,13 +19,15 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { PatientListComponent } from './patient-list/patient-list.component';
 import { LoginComponent } from './login/login.component';
 import { PatientDetailComponent } from './patient-detail/patient-detail.component';
+import { BasicCanvasComponent } from './basic-canvas/basic-canvas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PatientListComponent,
     LoginComponent,
-    PatientDetailComponent
+    PatientDetailComponent,
+    BasicCanvasComponent
   ],
   imports: [
     BrowserModule,

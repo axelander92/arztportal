@@ -14,8 +14,8 @@ export class PatientService {
   }
 
   getWSResolvePatient(patientAddress: string): Observable<any> {
-		return new Observable( subscriber => {
-			this.metamask.getContract().patienten(patientAddress, (error, value) => {
+    return new Observable( subscriber => {
+      this.metamask.getContract().patienten(patientAddress, (error, value) => {
         if (!error) {
           let parsedValues = this.metamask.parseResult(value, 'patienten');
           subscriber.next(parsedValues);

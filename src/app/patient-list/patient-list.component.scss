@@ -4,10 +4,29 @@
 }
 
 .progress-bar {
-  max-width: 100px;
-  margin-top: 10px;
+  position: absolute;
+  left: 60px;
+  bottom: 20px;
+  width: 400px;
 }
+.updated {
+  position: absolute;
+  right: 80px;
+  top: 30px;
+}  
 
 .patient-card {
-  margin-bottom: 30px;
+}
+
+.right {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  margin-top: -20px;
+  bottom: 0;
+
+}
+
+.mat-form-field {
+  width: 100%;
 }

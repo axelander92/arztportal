@@ -25,19 +25,40 @@ export class BasicCanvasComponent implements OnInit {
 
 	renderChart() {
     let dataPoints = [];
+    let dataPointsMax = [];
     let y = 0;
-    for ( var i = 0; i < 100; i++ ) {
-      y += Math.round(5 + Math.random() * (-5 - 5));
+    let y1 = 0;
+    for ( var i = 0; i < 30; i++ ) {
+      y = 70 + Math.floor(Math.random() * Math.floor(20));
       dataPoints.push({ y: y});
+      y1 = 75;
+      dataPointsMax.push({ y: y1});
     }
     this.chart = new CanvasJS.Chart("chartContainer", {
       zoomEnabled: true,
       animationEnabled: true,
       exportEnabled: false,
+      axisY: {
+        suffix: "dB"
+      },
+      legend: {
+        cursor: "pointer",
+        verticalAlign: "top",
+        horizontalAlign: "center",
+        dockInsidePlotArea: true
+      },
       data: [
       {
+        type: "spline",
+        dataPoints: dataPoints,
+        name: "gemessene Werte",
+        showInLegend: true
+      },
+      {
         type: "line",
-        dataPoints: dataPoints
+        dataPoints: dataPointsMax,
+        name: "Richtwert",
+        showInLegend: true
       }]
     });
 

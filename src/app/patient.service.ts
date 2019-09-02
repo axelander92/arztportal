@@ -13,10 +13,19 @@ export class PatientService {
     
   }
 
-  getWSPatienten() {
-    this.metamask.getContract().getPatientenAdressListeVonLungenarzt( (error, value) => {
-			console.log(error, value);			
+  getWSPatienten(): Observable<string[]> {
+    return new Observable( subscriber => {
+      this.metamask.getContract().getPatientenAdressListeVonLungenarzt(this.metamask.getLoggedInAddress(), (error, value) => {
+        if(!error) {
+          subscriber.next(value.split(';'));
+          subscriber.complete();
+        } else {
+          subscriber.next([]);
+          subscriber.error();
+        }
+      });
     });
+    
   }
 
 }

@@ -9,7 +9,7 @@ import { PatientDetailComponent } from './patient-detail/patient-detail.componen
 const routes: Routes = [
   { path: 'patienten', component: PatientListComponent},
   { path: 'detail', component: PatientDetailComponent },
-  { component: LoginComponent}
+  { path: '', component: LoginComponent}
 ];
 
 @NgModule({

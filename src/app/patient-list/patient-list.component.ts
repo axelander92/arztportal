@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { PatientService } from '../patient.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-patient-list',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientListComponent implements OnInit {
 
-  constructor() { }
+	public adressen: string[];
+
+  constructor(private patientService: PatientService, private ngZone: NgZone) { }
 
   ngOnInit() {
+    this.patientService.getWSPatienten().subscribe( value => {
+      this.ngZone.run( () => {
+        console.log(value);
+        this.adressen = value;
+        
+      })
+    });
   }
 
 }

@@ -252,6 +252,9 @@ export class MetamaskService {
   constructor() { 
     this.web3 = window.web3;
     this.contractAddress = '0x82e70519cd51dd635c844b4056435258f7abaa9a';
+    if ( localStorage.getItem('loggedInAddress') != '') {
+      this.loggedInAddress = localStorage.getItem('loggedInAddress');
+    }
   }
 
   getWalletAddress(): string {
@@ -275,6 +278,11 @@ export class MetamaskService {
 
   setLoggedInAddress(address: string) {
     this.loggedInAddress = address;
+    localStorage.setItem('loggedInAddress', address);
+  }
+
+  getLoggedInAddress() {
+    return this.loggedInAddress;
   }
 
 	getBalance(): Observable<String> {

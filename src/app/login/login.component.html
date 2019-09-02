@@ -4,7 +4,7 @@
 
 <form class="login-form">
   <mat-form-field class="field-full-width">
-    <input matInput placeholder="Login Key">
+    <input [(ngModel)]="address" [ngModelOptions]="{standalone: true}" matInput placeholder="Login Key">
   </mat-form-field>
-  <button mat-raised-button color="primary" class="btn_login">Anmelden</button>
+  <button (click)="login()" mat-raised-button color="primary" class="btn_login">Anmelden</button>
 </form>

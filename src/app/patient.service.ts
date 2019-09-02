@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ɵConsole } from '@angular/core';
 import { Observable } from 'rxjs';
+import { MetamaskService } from './metamask.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,18 +9,13 @@ export class PatientService {
 
 	private from: String;
 
-  constructor(fromLungenarzt: String) {
-    this.from = fromLungenarzt;
+  constructor(private metamask: MetamaskService) {
+    
   }
 
   getWSPatienten(): Observable<String[]> {
-    return new Observable( (subscriber) => {
-			if ( this.from == '0x00')  {
-        subscriber.next([]);
-        subscriber.complete();
-      } else {
-        subscriber.error();
-      }
+    this.metamask.getContract().getPatientenAdressListeVonLungenarzt( (error, value) => {
+			console.log(error, value);			
     });
   }
 

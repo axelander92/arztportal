@@ -2,7 +2,7 @@
   <span>Patientenliste</span>
 </mat-toolbar>
 
-<mat-card class="patient-card">
+<mat-card *ngFor="let adress of addressen" class="patient-card">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>Patient 1</mat-card-title>

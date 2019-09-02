@@ -3,10 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { PatientListComponent } from './patient-list/patient-list.component';
 import { LoginComponent } from './login/login.component';
+import { PatientDetailComponent } from './patient-detail/patient-detail.component';
 
 
-const routes: Routes = [{ path: '', component: PatientListComponent },
-                        { path: 'login', component: LoginComponent },];
+const routes: Routes = [
+  { path: '', component: PatientListComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'detail', component: PatientDetailComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

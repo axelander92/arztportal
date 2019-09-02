@@ -13,7 +13,7 @@ export class PatientService {
     
   }
 
-  getWSPatienten(): Observable<String[]> {
+  getWSPatienten() {
     this.metamask.getContract().getPatientenAdressListeVonLungenarzt( (error, value) => {
 			console.log(error, value);			
     });

@@ -1,21 +1,13 @@
-<mat-toolbar color="white">
+<mat-toolbar>
   <span>Patientenliste</span>
 </mat-toolbar>
 
-<mat-card *ngFor="let adress of addressen" class="patient-card">
+
+<mat-card *ngFor="let adress of addressen" class="patient-card" [routerLink]="['/detail']">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>Patient 1</mat-card-title>
     <mat-card-subtitle>01.01.1990</mat-card-subtitle>
     <mat-progress-bar class="progress-bar" mode="determinate" value="40"></mat-progress-bar>
-  </mat-card-header>
-</mat-card>
-
-<mat-card >
-  <mat-card-header class="patient-card">
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Patient 2</mat-card-title>
-    <mat-card-subtitle>01.01.2010</mat-card-subtitle>
-    <mat-progress-bar class="progress-bar" mode="determinate" value="80"></mat-progress-bar>
   </mat-card-header>
 </mat-card>

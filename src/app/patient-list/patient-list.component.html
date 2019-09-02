@@ -1,14 +1,26 @@
 <mat-toolbar>
   <span>Patientenliste</span>
 </mat-toolbar>
+<mat-toolbar>
+  <form>
+  <mat-form-field>
+    <input matInput placeholder="Patient suchen" (keyup)="updateFilter(query)" #query>
+    <mat-icon>search</mat-icon>
+  </mat-form-field>
+	</form>
+</mat-toolbar>
+
 
 <div *ngIf="adressen?.length > 0">
-<mat-card *ngFor="let address of adressen" class="patient-card" [routerLink]="['/detail', address.adresse]">
+<mat-card *ngFor="let patient of filteredAdressen" class="patient-card" [routerLink]="['/detail', patient.adresse]">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{address.name}}</mat-card-title>
-    <mat-card-subtitle>01.01.1990</mat-card-subtitle>
+    
+    <mat-card-title>{{patient.name}}</mat-card-title>
+    <mat-card-subtitle class="updated">01.01.1990</mat-card-subtitle>
+    <button class="right" mat-icon-button (click)="showContactLayer($event, patient)"><mat-icon>menu</mat-icon></button>
     <mat-progress-bar class="progress-bar" mode="determinate" value="40"></mat-progress-bar>
+    
   </mat-card-header>
 </mat-card>
 </div>

@@ -68,6 +68,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            "sslCert": "./68370245_localhost_4200.cert",
+            "sslKey": "./68370245_localhost_4200.key",
             "browserTarget": "arztportal:build"
           },
           "configurations": {

@@ -14,18 +14,20 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
-
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 
 import { PatientListComponent } from './patient-list/patient-list.component';
 import { LoginComponent } from './login/login.component';
 import { PatientDetailComponent } from './patient-detail/patient-detail.component';
+import { ContactShimComponent } from './contact-shim/contact-shim.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PatientListComponent,
     LoginComponent,
-    PatientDetailComponent
+    PatientDetailComponent,
+    ContactShimComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import { PatientDetailComponent } from './patient-detail/patient-detail.componen
     AppRoutingModule,
     BrowserAnimationsModule,
     MatMenuModule,
+    MatBottomSheetModule,
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
@@ -43,6 +46,7 @@ import { PatientDetailComponent } from './patient-detail/patient-detail.componen
     MatTabsModule
   ],
   providers: [],
+  entryComponents: [ContactShimComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

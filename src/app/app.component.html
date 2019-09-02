@@ -8,7 +8,8 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <mat-toolbar color="primary">
   <span>Arztportal</span>
-  <button mat-button id="btn_home">Home</button>
+  <button mat-button id="btn_home" [routerLink]="['/']">Home</button>
+  <button mat-button id="btn_login" [routerLink]="['/login']">Login</button>
   <span class="spacer"></span>
   <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">power_settings_new</mat-icon>
 </mat-toolbar>

@@ -9,17 +9,20 @@ import { Observable } from 'rxjs';
 })
 export class PatientListComponent implements OnInit {
 
-	public adressen: string[];
-
+	public adressen: any[] = [];
   constructor(private patientService: PatientService, private ngZone: NgZone) { }
 
   ngOnInit() {
     this.patientService.getWSPatienten().subscribe( value => {
-      this.ngZone.run( () => {
-        console.log(value);
-        this.adressen = value;
+      
         
-      })
+        let adressen = value;
+        adressen.forEach( address => {
+					this.patientService.getWSResolvePatient(address).subscribe( obj => {
+            console.log(obj.adresse);
+            this.ngZone.run( () => {this.adressen.push(obj); });
+          });
+        });
     });
   }
 

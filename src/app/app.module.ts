@@ -21,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { PatientDetailComponent } from './patient-detail/patient-detail.component';
 import { BasicCanvasComponent } from './basic-canvas/basic-canvas.component';
 import { ContactShimComponent } from './contact-shim/contact-shim.component';
+import { AttainComponent } from './attain/attain.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ContactShimComponent } from './contact-shim/contact-shim.component';
     LoginComponent,
     PatientDetailComponent,
     BasicCanvasComponent,
-    ContactShimComponent
+    ContactShimComponent,
+    AttainComponent
   ],
   imports: [
     BrowserModule,

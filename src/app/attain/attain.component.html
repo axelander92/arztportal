@@ -1,0 +1,15 @@
+<mat-toolbar>Patient aufnehmen</mat-toolbar>
+<p>Bitte lassen Sie von Ihrem aufzunehmenden Patienten diesen QR-Code scannen</p>
+<div *ngIf="lungenarztAdresse" class="state">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{lungenarztAdresse}}"/>
+    <span class="address">{{lungenarztAdresse}}</span>
+    <div class="checkmark" *ngIf="isRegistered">
+        <mat-icon>check</mat-icon> {{newPatientName}}
+    </div>
+    <div class="status" *ngIf="!isError">
+        Versuch {{attempt}} / {{attempts}}
+    </div>
+    <div class="error" *ngIf="isError">
+        <mat-icon>error</mat-icon> Es gab einen Fehler bei der Prüfung
+    </div>
+</div>

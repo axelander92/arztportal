@@ -7,9 +7,9 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <mat-toolbar color="primary">
+  <mat-icon *ngIf="router.url.startsWith('/detail')" class="example-icon" aria-hidden="false" aria-label="Example heart icon" [routerLink]="['/patienten']">arrow_back_ios</mat-icon>
+  <span class="spacer"></span>
   <span>Arztportal</span>
-  <button mat-button id="btn_home" [routerLink]="['/']">Home</button>
-  <button mat-button id="btn_login" [routerLink]="['/login']">Login</button>
   <span class="spacer"></span>
   <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon" [routerLink]="['/login']">power_settings_new</mat-icon>
 </mat-toolbar>

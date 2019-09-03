@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MetamaskService } from './metamask.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { MetamaskService } from './metamask.service';
 export class AppComponent {
   title = 'arztportal';
 
-  constructor(private metamaskService :MetamaskService) {
+  constructor(private metamaskService :MetamaskService, public router: Router) {
     metamaskService.getBalance().subscribe( value => {
 			console.log(value);
     });

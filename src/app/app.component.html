@@ -7,7 +7,7 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <mat-toolbar color="primary">
-  <mat-icon *ngIf="router.url.startsWith('/detail')" class="example-icon" aria-hidden="false" aria-label="Example heart icon" [routerLink]="['/patienten']">arrow_back_ios</mat-icon>
+  <mat-icon *ngIf="router.url !='/patienten' && router.url != '/login' && router.url != '/'" class="example-icon" aria-hidden="false" aria-label="Example heart icon" [routerLink]="['/patienten']">arrow_back_ios</mat-icon>
   <span class="spacer"></span>
   <span>Arztportal</span>
   <span class="spacer"></span>

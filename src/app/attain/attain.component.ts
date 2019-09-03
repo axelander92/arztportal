@@ -1,6 +1,7 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { PatientService } from '../patient.service';
 import { MetamaskService } from '../metamask.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-attain',
@@ -15,7 +16,7 @@ export class AttainComponent implements OnInit {
   private newPatientName: string;
   private isRegistered = false;
   private isError = false;
-  private attempts = 10;
+  private attempts = 200;
   private attempt = 0;
 
   constructor(private patientenService: PatientService, private metamask: MetamaskService, private ngZone: NgZone) { }
@@ -24,7 +25,7 @@ export class AttainComponent implements OnInit {
     this.lungenarztAdresse = this.metamask.getWalletAddress();
     this.patientenService.getWSPatienten().subscribe( value => {
       this.patientListLength = value.length;
-      this.checkId = setInterval(() => { this.checkForCompletion() }, 1000);
+      this.checkId = setInterval(() => { this.checkForCompletion() }, 5000);
     });
   }
 
@@ -37,16 +38,11 @@ export class AttainComponent implements OnInit {
       } else {
         this.attempt++;
       }
-      if ( this.attempt == 5 ) {
-        this.isError = true;
-        clearInterval(this.checkId);
-        return;
-      }
-        
+      
     });
     
     this.patientenService.getWSPatienten().subscribe( value => {
-      
+      console.log(value, this.patientListLength);
 			if (value.length > this.patientListLength) {
         clearInterval(this.checkId);
         this.patientenService.getWSResolvePatient(value[value.length-1]).subscribe( value => {
